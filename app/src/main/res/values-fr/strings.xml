@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="welcome_title">Bienvenue sur l\'application de sondage\ndes JPO de l'ESEO !</string>
+    <string name="log_as">Je me connecte en tant que</string>
+    <string name="visitor_name">Visiteur</string>
+    <string name="admin_name">Membre du départment de communication</string>
+
+    <string name="admin_main_fragment">Bonjour admin main fragment</string>
+    <string name="visitor_fragment">Bonjour visitor fragment</string>
+</resources>
