@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "550228510269",
+    "project_id": "eseojpoll",
+    "storage_bucket": "eseojpoll.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550228510269:android:9342fc80363c926e9a0c54",
+        "android_client_info": {
+          "package_name": "fr.eseo.e5e.ap.eseojpoll"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW2Ko03nfKhiQUFyvndBJLegtEdBrtUM0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

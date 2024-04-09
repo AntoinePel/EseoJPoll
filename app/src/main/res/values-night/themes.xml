@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.EseoJPoll" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/gradient_1_MID</item>
+        <item name="colorPrimaryVariant">@color/gradient_1_RHS</item>
+
+        <item name="colorSecondary">@color/gradient_2_MID</item>
+        <item name="colorSecondaryVariant">@color/gradient_2_RHS</item>
+    </style>
+</resources>

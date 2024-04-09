@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="grey">#FF999999</color>
+
+    <color name="gradient_1_LHS">#FF962152</color>
+    <color name="gradient_1_MID">#FFbf362b</color>
+    <color name="gradient_1_RHS">#FFe84a2f</color>
+    <color name="gradient_2_LHS">#FF1c75b5</color>
+    <color name="gradient_2_MID">#FF429ec9</color>
+    <color name="gradient_2_RHS">#FF69c7de</color>
+</resources>

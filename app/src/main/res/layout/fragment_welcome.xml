@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".ui.WelcomeFragment">
+
+    <TextView
+        android:id="@+id/welcomeTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:background="@color/gradient_2_MID"
+        android:padding="30dp"
+        android:text="@string/welcome_title"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/logAs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/log_as"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:layout_margin="24dp"/>
+
+    <Button
+        android:id="@+id/btnLogVisitor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:paddingHorizontal="24dp"
+        android:text="@string/visitor_name"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnLogAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:paddingHorizontal="24dp"
+        android:text="@string/admin_name"
+        android:textSize="20sp" />
+
+</LinearLayout>
