@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="welcome_title">Bienvenue sur l\'application de sondage\ndes JPO de l'ESEO !</string>
+    <string name="welcome_title">Bienvenue sur l\'application de sondage\ndes JPO de l\'ESEO !</string>
     <string name="log_as">Je me connecte en tant que</string>
     <string name="visitor_name">Visiteur</string>
     <string name="admin_name">Membre du départment de communication</string>
 
+    <string name="password_hint">Entrez le mot de passe</string>
+
     <string name="admin_main_fragment">Bonjour admin main fragment</string>
     <string name="visitor_fragment">Bonjour visitor fragment</string>
+
+    <string name="ongoing_poll">Sondage en cours</string>
+    <string name="inactive_polls">Autres sondages</string>
+
+    <string name="hello_blank_fragment">Bonjour blank fragment</string>
 </resources>

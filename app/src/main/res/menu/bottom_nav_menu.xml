@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ongoing_poll"
+        android:title="@string/ongoing_poll"
+        android:icon="@drawable/ic_pen_foreground"/>
+    <item
+        android:id="@+id/other_polls"
+        android:title="@string/inactive_polls"
+        android:icon="@drawable/ic_stats_foreground"/>
+</menu>

@@ -7,7 +7,7 @@ import android.widget.EditText
 import androidx.fragment.app.DialogFragment
 import fr.eseo.e5e.ap.eseojpoll.R
 
-class PasswordAdminFragment : DialogFragment() {
+class WelcomePasswordFragment : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?) : Dialog {
         return activity?.let{

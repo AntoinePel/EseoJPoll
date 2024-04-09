@@ -7,6 +7,13 @@
     <string name="visitor_name">Visitor</string>
     <string name="admin_name">Member of the communication department</string>
 
+    <string name="password_hint">Enter the password</string>
+
     <string name="admin_main_fragment">Hello admin main fragment</string>
     <string name="visitor_fragment">Hello visitor fragment</string>
+
+    <string name="ongoing_poll">Ongoing poll</string>
+    <string name="inactive_polls">Other polls</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

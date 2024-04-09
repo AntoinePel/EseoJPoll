@@ -42,7 +42,7 @@ class WelcomeFragment : Fragment() {
         }
 
         binding.btnLogAdmin.setOnClickListener {
-            val dialog = PasswordAdminFragment()
+            val dialog = WelcomePasswordFragment()
             dialog.show(parentFragmentManager, "PasswordAdminFragment")
         }
     }
