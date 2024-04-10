@@ -7,7 +7,7 @@
     <string name="visitor_name">Visitor</string>
     <string name="admin_name">Member of the communication department</string>
 
-    <string name="password_hint">Enter the password</string>
+    <string name="password_hint">Enter the password "Password123"</string>
 
     <string name="admin_main_fragment">Hello admin main fragment</string>
     <string name="visitor_fragment">Hello visitor fragment</string>

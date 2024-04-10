@@ -1,5 +1,6 @@
-package fr.eseo.e5e.ap.eseojpoll.ui
+package fr.eseo.e5e.ap.eseojpoll.ui.admin
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -33,8 +34,8 @@ class AdminMainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val firstFragment=AdminNavFirstFragment()
-        val secondFragment=AdminNavSecondFragment()
+        val firstFragment= AdminNavFirstFragment()
+        val secondFragment= AdminNavSecondFragment()
 
         setCurrentFragment(firstFragment)
 
@@ -48,11 +49,39 @@ class AdminMainFragment : Fragment() {
         }
 
         bottomNavigationView.selectedItemId = R.id.ongoing_poll
+
+
+        val fab: View = view.findViewById(R.id.fab_add)
+        fab.setOnClickListener {//view ->
+            //val dialog = PasswordDialogFragment()
+            //dialog.show(parentFragmentManager, "AddElementDialog")
+            val alertDialog = AlertDialog.Builder(context)
+            alertDialog.setTitle("Add an element")
+            val listItems = arrayOf("Student", "Project", "Poll")
+            alertDialog.setSingleChoiceItems(listItems, -1) {dialog, which ->
+                when(which){
+                    0->setNewFormFragment(AdminAddStudentFragment(), "Add Student")
+                    1->setNewFormFragment(AdminAddProjectFragment(), "Add Project")
+                    2->setNewFormFragment(AdminAddPollFragment(), "Add Poll")
+                }
+                dialog.dismiss()
+            }
+            alertDialog.setNegativeButton("Cancel"){ _, _ -> }
+            val customAlertDialog = alertDialog.create()
+            customAlertDialog.show()
+        }
     }
 
     private fun setCurrentFragment(fragment:Fragment){
         parentFragmentManager.beginTransaction()
             .replace(R.id.flFragment,fragment)
             .commit()
+    }
+    private fun setNewFormFragment(fragment:Fragment, backStash:String){
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.flFragment,fragment)
+            .addToBackStack(backStash)
+            .commit()
+        //TODO remove the navBar and addButton display
     }
 }

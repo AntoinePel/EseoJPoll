@@ -5,7 +5,7 @@
     <string name="visitor_name">Visiteur</string>
     <string name="admin_name">Membre du départment de communication</string>
 
-    <string name="password_hint">Entrez le mot de passe</string>
+    <string name="password_hint">Entrez le mot de passe "Password123"</string>
 
     <string name="admin_main_fragment">Bonjour admin main fragment</string>
     <string name="visitor_fragment">Bonjour visitor fragment</string>

@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import fr.eseo.e5e.ap.eseojpoll.R
 import fr.eseo.e5e.ap.eseojpoll.databinding.FragmentWelcomeBinding
+import fr.eseo.e5e.ap.eseojpoll.ui.dialog.PasswordDialogFragment
+import fr.eseo.e5e.ap.eseojpoll.ui.visitor.VisitorPollFragment
 
 
 class WelcomeFragment : Fragment() {
@@ -42,7 +44,7 @@ class WelcomeFragment : Fragment() {
         }
 
         binding.btnLogAdmin.setOnClickListener {
-            val dialog = WelcomePasswordFragment()
+            val dialog = PasswordDialogFragment()
             dialog.show(parentFragmentManager, "PasswordAdminFragment")
         }
     }

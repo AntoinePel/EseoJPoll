@@ -1,4 +1,4 @@
-package fr.eseo.e5e.ap.eseojpoll.ui
+package fr.eseo.e5e.ap.eseojpoll.ui.dialog
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -6,8 +6,9 @@ import android.os.Bundle
 import android.widget.EditText
 import androidx.fragment.app.DialogFragment
 import fr.eseo.e5e.ap.eseojpoll.R
+import fr.eseo.e5e.ap.eseojpoll.ui.admin.AdminMainFragment
 
-class WelcomePasswordFragment : DialogFragment() {
+class PasswordDialogFragment : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?) : Dialog {
         return activity?.let{
