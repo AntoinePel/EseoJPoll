@@ -1,4 +1,4 @@
-package fr.eseo.e5e.ap.eseojpoll.ui.dialog
+package fr.eseo.e5e.ap.eseojpoll.ui
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -14,12 +14,12 @@ class PasswordDialogFragment : DialogFragment() {
         return activity?.let{
             val builder = AlertDialog.Builder(it)
             val inflater = requireActivity().layoutInflater
-            val dialogView = inflater.inflate(R.layout.fragment_password_admin, null)
+            val dialogView = inflater.inflate(R.layout.fragment_password_dialog, null)
             val passwordInput = dialogView.findViewById<EditText>(R.id.text_password_admin)
 
             builder.apply {
                 setView(dialogView)
-                setPositiveButton("OK") { dialog, id ->
+                setPositiveButton("OK") { _, _ ->
                         val enteredPassword = passwordInput.text.toString()
                         val encryptedPassword = encryptPassword(enteredPassword)
                         if(isCorrectPassword(encryptedPassword)){
@@ -32,7 +32,7 @@ class PasswordDialogFragment : DialogFragment() {
                             fragmentTransaction.commit()
                         }
                     }
-                setNegativeButton("Cancel") { dialog, id ->
+                setNegativeButton("Cancel") { dialog, _ ->
                         dialog.cancel()
                     }
             }
@@ -40,6 +40,7 @@ class PasswordDialogFragment : DialogFragment() {
         } ?: throw IllegalStateException("Activity cannot be null")
     }
 
+    //TODO password encryption & save in database
     private fun encryptPassword(password: String): String {
         return password
     }

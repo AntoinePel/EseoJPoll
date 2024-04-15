@@ -6,5 +6,9 @@
 
         <item name="colorSecondary">@color/gradient_2_MID</item>
         <item name="colorSecondaryVariant">@color/gradient_2_RHS</item>
+
+        <item name="android:colorControlNormal">@color/light_black</item>
+
+        <item name="android:textColor">@color/grey</item>
     </style>
 </resources>

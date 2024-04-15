@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="hello_blank_fragment">Bonjour blank fragment</string>
+
     <string name="welcome_title">Bienvenue sur l\'application de sondage\ndes JPO de l\'ESEO !</string>
     <string name="log_as">Je me connecte en tant que</string>
     <string name="visitor_name">Visiteur</string>
@@ -10,8 +12,49 @@
     <string name="admin_main_fragment">Bonjour admin main fragment</string>
     <string name="visitor_fragment">Bonjour visitor fragment</string>
 
+    <string name="admin_add_option_student">Nouvel étudiant</string>
+    <string name="admin_add_option_project">Nouveau projet</string>
+    <string name="admin_add_option_poll">Nouveau sondage</string>
+
     <string name="ongoing_poll">Sondage en cours</string>
     <string name="inactive_polls">Autres sondages</string>
 
-    <string name="hello_blank_fragment">Bonjour blank fragment</string>
+    <string name="btn_clear">Nettoyer</string>
+    <string name="btn_add">Ajouter</string>
+
+    <string name="add_student_form">Ajout d\'étudiant :</string>
+    <string name="student_lastname">Nom</string>
+    <string name="student_firstname">Prénom</string>
+    <string name="student_level">Niveau</string>
+    <string name="student_speciality">Spécialité</string>
+    <string name="hint_student_lastname">Entrer le nom</string>
+    <string name="hint_student_firstname">Entrer le prénom</string>
+    <string name="hint_student_level">Sélectioner le niveau</string>
+    <string name="hint_student_speciality">Sélectionner la spécialité</string>
+
+    <string name="add_project_form">Ajout de projet :</string>
+    <string name="project_name">Nom du projet</string>
+    <string name="hint_project_name">Saisir le nom du projet</string>
+    <string name="project_description">Description</string>
+    <string name="hint_project_description">Entrez la description du projet</string>
+    <string name="project_media">Média</string>
+    <string name="hint_project_media">Photo ou vidéo du projet</string>
+    <string name="default_text_spinner_students">- Sélectionnez un étudiant -</string>
+
+    <string name="add_poll_form">Ajout de sondage :</string>
+    <string name="project_students">Étudiants impliqués</string>
+    <string name="poll_projects">Selectionnez les projets</string>
+
+
+    <string-array name="list_student_speciality">
+        <item>Aucune</item>
+        <item>LD</item>
+        <item>CSS</item>
+        <item>SE</item>
+        <item>EOC</item>
+        <item>NRJ</item>
+        <item>BIO</item>
+        <item>DSMT</item>
+        <item>Autre</item>
+    </string-array>
 </resources>

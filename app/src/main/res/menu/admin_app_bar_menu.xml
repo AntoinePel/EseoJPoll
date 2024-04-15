@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_add_element"
+        android:title="Add Element"
+        android:icon="@drawable/ic_add_foreground"
+        app:showAsAction="always">
+
+        <menu>
+            <group
+                android:id="@+id/group_add_elements"
+                android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/action_add_student"
+                    android:title="@string/admin_add_option_student"
+                    app:showAsAction="never"
+                    android:checkable="false" />
+
+                <item
+                    android:id="@+id/action_add_project"
+                    android:title="@string/admin_add_option_project"
+                    app:showAsAction="never"
+                    android:checkable="false" />
+
+                <item
+                    android:id="@+id/action_add_poll"
+                    android:title="@string/admin_add_option_poll"
+                    app:showAsAction="never"
+                    android:checkable="false" />
+            </group>
+        </menu>
+    </item>
+</menu>

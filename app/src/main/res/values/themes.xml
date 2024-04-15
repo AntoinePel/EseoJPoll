@@ -8,6 +8,11 @@
 
         <item name="colorSecondary">@color/gradient_2_MID</item>
         <item name="colorSecondaryVariant">@color/gradient_2_LHS</item>
+
+        <item name="android:colorControlNormal">@color/white</item>
+
+        <item name="android:textColor">@color/light_black</item>
+        <item name="borderRound">@color/light_black</item>
     </style>
 
     <style name="Theme.EseoJPoll" parent="Base.Theme.EseoJPoll" />

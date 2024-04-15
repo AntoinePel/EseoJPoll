@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">EseoJPoll</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="welcome_title">Welcome to the poll application for\nthe ESEO\'s JPO !</string>
     <string name="log_as">I\'m logging in as a</string>
@@ -12,8 +13,63 @@
     <string name="admin_main_fragment">Hello admin main fragment</string>
     <string name="visitor_fragment">Hello visitor fragment</string>
 
+    <string name="admin_add_option_student">Add student</string>
+    <string name="admin_add_option_project">Add project</string>
+    <string name="admin_add_option_poll">Add poll</string>
+
     <string name="ongoing_poll">Ongoing poll</string>
     <string name="inactive_polls">Other polls</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn_clear">Clear</string>
+    <string name="btn_add">Add</string>
+
+    <string name="add_student_form">Add a student :</string>
+    <string name="student_lastname">Last Name</string>
+    <string name="student_firstname">First Name</string>
+    <string name="student_level">Level</string>
+    <string name="student_speciality">Speciality</string>
+    <string name="hint_student_lastname">Enter the last name</string>
+    <string name="hint_student_firstname">Enter the first name</string>
+    <string name="hint_student_level">Select the level of schooling</string>
+    <string name="hint_student_speciality">Select the speciality</string>
+
+    <string name="add_project_form">Add a project :</string>
+    <string name="project_name">Project Name</string>
+    <string name="hint_project_name">Enter the project name</string>
+    <string name="project_description">Description</string>
+    <string name="hint_project_description">Enter the description of the project</string>
+    <string name="project_media">Media</string>
+    <string name="hint_project_media">Load a photo or video of the project</string>
+    <string name="default_text_spinner_students">- Select a student -</string>
+
+    <string name="add_poll_form">Add a poll :</string>
+    <string name="project_students">Students involved</string>
+    <string name="poll_projects">Select projects</string>
+
+    <string-array name="list_student_level" translatable="false">
+        <item>---</item>
+        <item>e3e</item>
+        <item>e4e</item>
+        <item>e5e</item>
+        <item>e3a</item>
+        <item>e4a</item>
+        <item>e5a</item>
+        <item>e1</item>
+        <item>e2</item>
+        <item>b1</item>
+        <item>b2</item>
+        <item>b3</item>
+    </string-array>
+
+    <string-array name="list_student_speciality">
+        <item>None</item>
+        <item>LD</item>
+        <item>CSS</item>
+        <item>SE</item>
+        <item>EOC</item>
+        <item>NRJ</item>
+        <item>BIO</item>
+        <item>DSMT</item>
+        <item>Other</item>
+    </string-array>
 </resources>

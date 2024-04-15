@@ -1,9 +1,11 @@
 package fr.eseo.e5e.ap.eseojpoll.ui.admin
 
-import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -13,6 +15,7 @@ import fr.eseo.e5e.ap.eseojpoll.databinding.FragmentAdminMainBinding
 class AdminMainFragment : Fragment() {
     private lateinit var fragment: AdminMainFragment
     private lateinit var binding: FragmentAdminMainBinding
+
     companion object {
         fun newInstance(): AdminMainFragment {
             return AdminMainFragment()
@@ -27,17 +30,15 @@ class AdminMainFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        setHasOptionsMenu(true)
         return inflater.inflate(R.layout.fragment_admin_main, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val firstFragment= AdminNavFirstFragment()
-        val secondFragment= AdminNavSecondFragment()
-
-        setCurrentFragment(firstFragment)
+        val firstFragment = AdminNavFirstFragment()
+        val secondFragment = AdminNavSecondFragment()
 
         var bottomNavigationView = view.findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
         bottomNavigationView.setOnNavigationItemSelectedListener{
@@ -47,41 +48,41 @@ class AdminMainFragment : Fragment() {
             }
             true
         }
-
         bottomNavigationView.selectedItemId = R.id.ongoing_poll
+    }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.admin_app_bar_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
 
-        val fab: View = view.findViewById(R.id.fab_add)
-        fab.setOnClickListener {//view ->
-            //val dialog = PasswordDialogFragment()
-            //dialog.show(parentFragmentManager, "AddElementDialog")
-            val alertDialog = AlertDialog.Builder(context)
-            alertDialog.setTitle("Add an element")
-            val listItems = arrayOf("Student", "Project", "Poll")
-            alertDialog.setSingleChoiceItems(listItems, -1) {dialog, which ->
-                when(which){
-                    0->setNewFormFragment(AdminAddStudentFragment(), "Add Student")
-                    1->setNewFormFragment(AdminAddProjectFragment(), "Add Project")
-                    2->setNewFormFragment(AdminAddPollFragment(), "Add Poll")
-                }
-                dialog.dismiss()
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.action_add_student -> {
+                setNewFormFragment(AdminAddStudentFragment(), "Add Student")
+                true
             }
-            alertDialog.setNegativeButton("Cancel"){ _, _ -> }
-            val customAlertDialog = alertDialog.create()
-            customAlertDialog.show()
+            R.id.action_add_project -> {
+                setNewFormFragment(AdminAddProjectFragment(), "Add Project")
+                true
+            }
+            R.id.action_add_poll -> {
+                setNewFormFragment(AdminAddPollFragment(), "Add Poll")
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
     private fun setCurrentFragment(fragment:Fragment){
         parentFragmentManager.beginTransaction()
-            .replace(R.id.flFragment,fragment)
+            .replace(R.id.fl_fragment,fragment)
             .commit()
     }
     private fun setNewFormFragment(fragment:Fragment, backStash:String){
         parentFragmentManager.beginTransaction()
-            .replace(R.id.flFragment,fragment)
+            .replace(R.id.fl_fragment,fragment)
             .addToBackStack(backStash)
             .commit()
-        //TODO remove the navBar and addButton display
     }
 }
