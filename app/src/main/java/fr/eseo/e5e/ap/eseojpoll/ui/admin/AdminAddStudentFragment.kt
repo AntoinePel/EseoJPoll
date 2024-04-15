@@ -14,16 +14,13 @@ import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
 import fr.eseo.e5e.ap.eseojpoll.R
 import fr.eseo.e5e.ap.eseojpoll.databinding.FragmentAdminAddStudentBinding
+import fr.eseo.e5e.ap.eseojpoll.model.Student
 
 class AdminAddStudentFragment : Fragment() {
     private val db = FirebaseFirestore.getInstance()
     private val tag = "Add Student Form"
     private lateinit var binding : FragmentAdminAddStudentBinding
-
-    private lateinit var formLastName: String
-    private lateinit var formFirstName: String
-    private lateinit var formLevel: String
-    private lateinit var formSpeciality: String
+    private var student = Student()
 
     private lateinit var etLastName: EditText
     private lateinit var etFirstName: EditText
@@ -60,7 +57,7 @@ class AdminAddStudentFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                formLevel = levels[position]
+                //formLevel = levels[position]
                 Toast.makeText(requireContext(),
                     getString(R.string.student_level) + " " +
                             levels[position], Toast.LENGTH_SHORT).show()
@@ -85,7 +82,7 @@ class AdminAddStudentFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                formSpeciality = specialities[position]
+                //formSpeciality = specialities[position]
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -99,23 +96,20 @@ class AdminAddStudentFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         binding.btnAdd.setOnClickListener {
-            formLastName = etLastName.text.toString()
-            formFirstName = etFirstName.text.toString()
-            formLevel = spinLevel.selectedItem.toString()
-            formSpeciality = spinSpeciality.selectedItem.toString()
+            student.lastName = etLastName.text.toString()
+            student.firstName = etFirstName.text.toString()
+            student.level = spinLevel.selectedItem.toString()
+            student.speciality = spinSpeciality.selectedItem.toString()
 
-            println("$formFirstName $formLastName, $formLevel, $formSpeciality")
+            println(student)
 
-            val student = mapOf(
-                "firstName" to formFirstName,
-                "lastName" to formLastName,
-                "level" to formLevel,
-                "speciality" to formSpeciality
-            )
-            db.collection("students").document("$formFirstName $formLastName")
+            db.collection("students").document(student.toString())
                 .set(student)
                 .addOnSuccessListener { Log.d(tag, "DocumentSnapshot successfully written!") }
                 .addOnFailureListener { e -> Log.w(tag, "Error writing document", e)}
+
+            etFirstName.text.clear()
+            etLastName.text.clear()
         }
         binding.btnClear.setOnClickListener {
             etFirstName.text.clear()

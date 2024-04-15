@@ -4,12 +4,12 @@ import com.google.firebase.firestore.IgnoreExtraProperties
 
 @IgnoreExtraProperties
 data class Student(
-    var firstname: String? = "",
-    var lastname: String? = "",
+    var firstName: String? = "",
+    var lastName: String? = "",
     var level: String? = "",
     var speciality: String? = ""
 ) {
     override fun toString(): String {
-        return "$firstname $lastname"
+        return "$firstName $lastName"
     }
 }

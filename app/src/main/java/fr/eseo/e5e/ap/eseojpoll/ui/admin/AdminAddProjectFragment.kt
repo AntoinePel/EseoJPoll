@@ -9,8 +9,6 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import androidx.core.view.get
-import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
@@ -25,14 +23,11 @@ class AdminAddProjectFragment : Fragment() {
 
     private val studentsCollection = db.collection("students")
     private lateinit var spinStudents: Spinner
-    private lateinit var studentAdapter: ArrayAdapter<Student>
+    private lateinit var studentSpinnerAdapter: ArrayAdapter<Student>
+    private var studentDataList : ArrayList<Student> = arrayListOf()
 
     private lateinit var rvStudents : RecyclerView
     private var listStudentsToAdd : ArrayList<Student> = arrayListOf()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,10 +35,15 @@ class AdminAddProjectFragment : Fragment() {
     ): View? {
         binding = FragmentAdminAddProjectBinding.inflate(inflater, container, false)
         val view = binding.root
-        val studentDataList = ArrayList<Student>()
 
         spinStudents = view.findViewById(R.id.spin_project_students)
 
+        studentDataList = ArrayList<Student>()
+        studentDataList.add(Student(firstName = getString(R.string.default_text_spinner_students)))
+
+        studentSpinnerAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, studentDataList)
+        studentSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinStudents.adapter = studentSpinnerAdapter
 
         //Student spinner adapter for the project
         studentsCollection.get()
@@ -64,12 +64,15 @@ class AdminAddProjectFragment : Fragment() {
                             Log.w(tag, "One or more fields are null for document ${document.id}")
                         }
                     }
-                    studentAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, studentDataList)
-                    studentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                    spinStudents.adapter = studentAdapter
+                    studentSpinnerAdapter.notifyDataSetChanged()
                 }
             }
             .addOnFailureListener { e -> Log.w(tag, "Error getting student documents: ", e) }
+
+        rvStudents = view.findViewById(R.id.rv_project_students)
+        rvStudents.layoutManager = LinearLayoutManager(requireContext())
+        val studentsRVAdapter = StudentsAdapter(listStudentsToAdd)
+        rvStudents.adapter = studentsRVAdapter
 
         //Spinner observers
         spinStudents.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -79,14 +82,19 @@ class AdminAddProjectFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                val selectedItem = parent.getItemAtPosition(position) as Student
-                //The selection is added to the RecyclerView
-                listStudentsToAdd.add(selectedItem)
-                Log.d(tag, "selected $selectedItem")
-                Log.d(tag, "listStudentToAdd size = " + listStudentsToAdd.size)
-                //And removed from the Spinner
-                studentDataList.remove(selectedItem)
-                studentAdapter.notifyDataSetChanged()
+                if(position > 0){
+                    val selectedItem = parent.getItemAtPosition(position) as Student
+                    //The selection is added to the RecyclerView
+                    Log.d(tag, "listStudentToAdd size before = " + listStudentsToAdd.size)
+                    listStudentsToAdd.add(selectedItem)
+                    Log.d(tag, "listStudentToAdd size after = " + listStudentsToAdd.size)
+                    Log.d(tag, "studentDataList size before = " + studentDataList.size)
+                    //And removed from the Spinner
+                    Log.d(tag, "selected n°${position} : $selectedItem")
+                    studentDataList.remove(selectedItem)
+                    Log.d(tag, "studentDataList size after = " + studentDataList.size)
+                    studentSpinnerAdapter.notifyDataSetChanged()
+                }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -96,6 +104,6 @@ class AdminAddProjectFragment : Fragment() {
 
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_admin_add_project, container, false)
+        return view
     }
 }
